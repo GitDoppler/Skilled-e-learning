@@ -1,0 +1,624 @@
+:root {
+    --clr-darkblue: #13183F;
+    --clr-lightpurple: #666CA3;
+    --clr-grey: #83869A;
+    --clr-brightpink: #F74780;
+    --clr-pink: #FFA7C3;
+    --clr-white: #FFFFFF;
+    --grd-primary: linear-gradient(#FF6F48, #F02AA6);
+    --grd-secondary: linear-gradient(#4851FF, #F02AA6);
+    --grd-background: linear-gradient(#fff, #F0F1FF);
+
+    --grd-primary-hover: linear-gradient(#FEBFAE, #F896CF);
+    --grd-secondary-hover: linear-gradient(#C3A0ED, #F595D3);
+
+    --ff-primary: 'Plus Jakarta Sans', sans-serif;
+    --ff-body: var(--ff-primary);
+    --ff-heading: var(--ff-primary);
+
+    --fw-regular: 500;
+    --fw-bold: 700;
+    --fw-extra: 800;
+
+    --fs-400: 1rem;
+    --fs-500: 1.125rem;
+    --fs-600: 1.25rem;
+    --fs-700: 1.5rem;
+    --fs-800: 2rem;
+    --fs-900: 2.5rem;
+    --fs-1000: 3.5rem;
+
+    --fs-body: var(--fs-400);
+    --fs-button: var(--fs-400);
+    --fs-primary-heading: var(--fs-900);
+    --fs-secondary-heading: var(--fs-700);
+    --fs-tertiary-heading: var(--fs-600);
+    --fs-link: var(--fs-500);
+
+    --size-100: 0.25rem;
+    --size-200: 0.5rem;
+    --size-300: 0.75rem;
+    --size-400: 1rem;
+    --size-500: 1.25rem;
+    --size-550: 1.5rem;
+    --size-600: 2rem;
+    --size-700: 3rem;
+    --size-800: 4rem;
+    --size-900: 5rem;
+
+    --lh-primary-heading: 3.125rem;
+    --lh-secondary-heading: 2rem;
+    --lh-body: 1.625rem;
+}
+
+@media(min-width:71.375em) {
+    :root {
+        --fs-body: var(--fs-500);
+        --fs-button: var(--fs-500);
+        --fs-primary-heading: var(--fs-1000);
+        --fs-secondary-heading: var(--fs-800);
+        --fs-tertiary-heading: var(--fs-700);
+        /* --fs-link stays the same */
+
+        --lh-primary-heading: 4.5rem;
+        --lh-secondary-heading: 2.5rem;
+        --lh-body: 1.75rem;
+    }
+}
+
+/*-------RESET CSS-------
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+/* Set core body defaults */
+body {
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+    max-width: 100%;
+    display: block;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/*-------------------*/
+
+/* Utility classes */
+
+.text-darkblue {
+    color: var(--clr-darkblue);
+}
+
+.text-grey {
+    color: var(--clr-grey);
+}
+
+.text-brightpink {
+    color: var(--clr-brightpink);
+}
+
+.text-white {
+    color: var(--clr-white);
+}
+
+.text-pink {
+    color: var(--clr-pink);
+}
+
+
+
+
+.bg-white {
+    background-color: var(--clr-white);
+}
+
+.bg-darkblue {
+    background-color: var(--clr-darkblue);
+}
+
+.bg-lightpurple {
+    background: var(--clr-lightpurple);
+}
+
+.bg-grd-primary {
+    background-image: var(--grd-primary);
+}
+
+.bg-grd-secondary {
+    background-image: var(--grd-secondary);
+}
+
+.bg-grd-primary-hover {
+    background-image: var(--grd-primary-hover);
+}
+
+.bg-grd-secondary-hover {
+    background-image: var(--grd-secondary-hover);
+}
+
+.bg-grd-background {
+    background-image: var(--grd-background);
+}
+
+
+
+
+.fw-regular {
+    font-weight: var(--fw-regular);
+}
+
+.fw-bold {
+    font-weight: var(--fw-bold);
+}
+
+.fw-extra {
+    font-weight: var(--fw-extra);
+}
+
+
+
+
+.fs-body {
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+}
+
+.fs-button {
+    font-size: var(--fs-button);
+}
+
+.fs-primary-heading {
+    font-size: var(--fs-primary-heading);
+    line-height: var(--lh-primary-heading);
+}
+
+.fs-secondary-heading {
+    font-size: var(--fs-secondary-heading);
+    line-height: var(--lh-secondary-heading);
+}
+
+.fs-tertiary-heading {
+    font-size: var(--fs-tertiary-heading);
+}
+
+.fs-link {
+    font-size: var(--fs-link);
+}
+
+
+
+
+.padding-block-900 {
+    padding-block: var(--size-900);
+}
+
+.padding-block-600 {
+    padding-block: var(--size-600);
+}
+
+.padding-block-550 {
+    padding-block: var(--size-550);
+}
+
+.padding-top-900 {
+    padding-top: var(--size-900);
+}
+
+
+
+
+/* containers ( big & small ) + skills section ( cta + skill item ) */
+.container-big {
+    --max-width: 1110px;
+    --pading-horizontal: 1rem;
+
+    --contain-big-width: min(var(--max-width), 100% - (var(--pading-horizontal)*2));
+    width: min(var(--max-width), 100% - (var(--pading-horizontal)*2));
+    /* *2 because we need 1 rem on each side. If it weren't for *2, 'margin-inline:auto' would give 1/2 rem on each side */
+    margin-inline: auto;
+    /*splits equaly the horizontal margin for each side*/
+}
+
+.container-small {
+    height: 100%;
+    padding: 3.5rem 1.75rem 2rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 10px 50px rgba(6, 22, 141, 4.42%);
+
+    position: relative;
+}
+
+.container-small p {
+    margin-top: 1rem;
+}
+
+/* id cause i was to lazy to mess with classes */
+#cta {
+    width: 21.25rem;
+    height: 7.5rem;
+}
+
+#cta h2 {
+    padding: 1.5rem 1.75rem 2rem 1.75rem;
+}
+
+.equal-squares {
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.equal-squares>* {
+    width: 21.25rem;
+    height: 16.25rem;
+    border-radius: 0.625rem;
+    background-color: var(--clr-white);
+}
+
+@media(min-width:47em) {
+    .equal-squares {
+        gap: 3.5rem 0.6875rem;
+        max-width: 691px;
+        margin-inline: auto;
+    }
+
+    #test {
+        max-width: 691px;
+        margin-inline: auto;
+    }
+
+    #cta {
+        height: 16.25rem;
+    }
+
+    #cta h2 {
+        padding: 3.5rem 1.3125rem 8.75rem 2rem;
+    }
+}
+
+
+
+
+@media(min-width:67.125em) {
+
+    .container-small {
+        padding: 4rem 2rem 2.5rem 2rem;
+    }
+
+    .container-small p {
+        margin-top: 1.5rem;
+    }
+
+    .equal-squares {
+        gap: 5rem 1.875rem;
+        max-width: 730px;
+    }
+
+    #test {
+        max-width: 730px;
+    }
+
+    .equal-squares>*,
+    #cta {
+        width: 21.875rem;
+        height: 20rem;
+    }
+}
+
+@media(min-width:71.375em) {
+    .equal-squares {
+        max-width: 1110px;
+    }
+
+    #test {
+        max-width: 1110px;
+    }
+}
+
+
+
+
+/* general styling */
+body {
+    font-size: var(--fs-body);
+    font-family: var(--ff-body);
+}
+
+
+
+
+/* buttons */
+.button-alpha {
+    border: 0;
+    border-radius: 100vmax;
+    padding: 0.75em 1.75em;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-button);
+    color: var(--clr-white);
+    background-color: var(--clr-darkblue);
+    z-index: 2;
+}
+
+.button-alpha:hover,
+.button-alpha:focus-visible {
+    background-color: var(--clr-lightpurple);
+}
+
+.button-gamma {
+    border: 0;
+    border-radius: 100vmax;
+    padding: 0.75em 1.75em;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-button);
+    color: var(--clr-white);
+    background-image: var(--grd-secondary);
+}
+
+.button-gamma:hover,
+.button-gamma:focus-visible {
+    background-image: var(--grd-secondary-hover);
+}
+
+.button-beta {
+    border: 0;
+    border-radius: 100vmax;
+    padding: 0.9em 2em;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-button);
+    color: var(--clr-white);
+    background-image: var(--grd-primary);
+}
+
+.button-beta:hover,
+.button-beta:focus-visible {
+    background-image: var(--grd-primary-hover);
+}
+
+@media(min-width:50em) {
+
+    .button-alpha,
+    .button-gamma {
+        padding: 0.75em 2em;
+    }
+}
+
+
+
+
+/* links */
+.link-alpha {
+    font-size: var(--fs-link);
+    color: var(--clr-brightpink);
+    font-weight: var(--fw-bold);
+    text-decoration: none;
+
+    margin-top: auto;
+    /* to position at the bottom of the cointainer div */
+}
+
+.link-alpha:hover,
+.link-alpha:focus-visible {
+    color: var(--clr-pink);
+}
+
+
+
+/* navigation */
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .navigation {
+    padding-top: 1rem;
+}
+
+
+/* .hero-mobile {
+    box-shadow: 0px 34px 54px rgba(6, 22, 141, 15.89%); 
+} */
+
+/* HOW TO SOLVE THE PROBLEM OF BOX SHADOW AND THE HERO MOBILE SVG */
+/* MAKE A DIV, EXPORT AND PUT WOMAN IN DIV, CENTER WOMAN IN THE NEW DIV. */
+/* ADD THE 2 PANELS AND USE POSITION RELATIVE TO POSITION THEM CORECTLY IN DIV AND THEN ADD DROP-SHADOW */
+
+
+.hero-image {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 340px;
+    height: 300px;
+    margin-inline: auto;
+}
+
+#course-hours {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    box-shadow: 0px 34px 54px rgba(6, 22, 141, 15.89%);
+    border-radius: 10px;
+}
+
+#members {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    box-shadow: 0px 34px 54px rgba(6, 22, 141, 15.89%);
+    border-radius: 10px;
+}
+
+.hero-central {
+    max-width: 21.43rem;
+    margin-inline: auto;
+}
+
+@media(min-width:47em) {
+    .hero-central {
+        max-width: 25em;
+        margin-inline: initial;
+    }
+}
+
+@media(min-width:67.125em) {
+    .hero-central {
+        max-width: 28.75em;
+    }
+}
+
+.hero-central button {
+    margin-bottom: 2.875rem;
+}
+
+.hero-central p {
+    padding-block: 1.75rem;
+}
+
+#hero-image-tablet {
+    display: none;
+}
+
+
+@media(min-width:47em) {
+    .hero-image {
+        display: none;
+    }
+
+    #hero-image-tablet {
+        display: initial;
+    }
+}
+
+/* @media(max-width:47em) {
+    #hero-image-tablet {
+        display: none;
+    }
+} */
+
+#hero-image-desktop {
+    display: none;
+}
+
+@media(min-width:71.375em) {
+    #hero-image-tablet {
+        display: none;
+    }
+
+    #hero-image-desktop {
+        display: initial;
+    }
+}
+
+#test {
+    position: relative;
+}
+
+#hero-image-tablet {
+    position: absolute;
+    top: -80%;
+    left: 50%;
+}
+
+#hero-image-desktop {
+    position: absolute;
+    top: -110%;
+    left: 45%;
+}
+
+
+/* @media(max-width:71.375em) {
+    #hero-image-desktop {
+        display: none;
+    }
+} */
+
+html {
+    overflow-x: hidden;
+    /*without this, the hero image creates big distortion */
+}
+
+.container-small img {
+    position: absolute;
+    top: -24px;
+    left: 28px;
+}
+
+@media(min-width:47em) {
+    section:nth-of-type(1) {
+        padding-top: 6.125rem;
+    }
+
+    section:nth-of-type(2) {
+        padding-top: 11.625rem;
+    }
+
+    .container-small img {
+        top: -24px;
+        left: 32px;
+    }
+}
+
+@media(min-width:71.375em) {
+    section:nth-of-type(2) {
+        padding-top: 14.125rem;
+    }
+
+    section:nth-of-type(1) {
+        padding-top: 11.125rem;
+    }
+}
