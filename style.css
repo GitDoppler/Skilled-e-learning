@@ -51,7 +51,7 @@
     --lh-body: 1.625rem;
 }
 
-@media(min-width:71.375em) {
+@media(min-width:72.375em) {
     :root {
         --fs-body: var(--fs-500);
         --fs-button: var(--fs-500);
@@ -258,123 +258,137 @@ svg {
 
 
 
-/* containers ( big & small ) + skills section ( cta + skill item ) */
-.container-big {
-    --max-width: 1110px;
-    --pading-horizontal: 1rem;
+/* general styling */
+body {
+    font-size: var(--fs-body);
+    font-family: var(--ff-body);
+    overflow-x: hidden;
+}
 
-    --contain-big-width: min(var(--max-width), 100% - (var(--pading-horizontal)*2));
-    width: min(var(--max-width), 100% - (var(--pading-horizontal)*2));
-    /* *2 because we need 1 rem on each side. If it weren't for *2, 'margin-inline:auto' would give 1/2 rem on each side */
+html {
+    overflow-x: hidden;
+    /*without this, the hero image creates big distortion */
+}
+
+@media(min-width:47em) {
+    section:nth-of-type(1) {
+        padding-top: 6.125rem;
+    }
+
+    section:nth-of-type(2) {
+        padding-top: 11.625rem;
+    }
+
+}
+
+@media(min-width:72.375em) {
+    section:nth-of-type(2) {
+        padding-top: 14.125rem;
+    }
+
+    section:nth-of-type(1) {
+        padding-top: 11.125rem;
+    }
+}
+
+
+
+
+/* containers ( basic + equal-squares + heading + skill ) + skills section*/
+.container-basic {
+    width: 340px;
     margin-inline: auto;
-    /*splits equaly the horizontal margin for each side*/
 }
 
-.container-small {
-    height: 100%;
-    padding: 3.5rem 1.75rem 2rem 1.75rem;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0px 10px 50px rgba(6, 22, 141, 4.42%);
-
-    position: relative;
-}
-
-.container-small p {
-    margin-top: 1rem;
-}
-
-/* id cause i was to lazy to mess with classes */
-#cta {
-    width: 21.25rem;
-    height: 7.5rem;
-}
-
-#cta h2 {
-    padding: 1.5rem 1.75rem 2rem 1.75rem;
-}
-
-.equal-squares {
+.container-equal-squares {
+    width: 340px;
     display: flex;
     gap: 2.5rem;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.equal-squares>* {
+.container-heading {
+    width: 21.25rem;
+    height: 7.5rem;
+    border-radius: 0.625rem;
+}
+
+.container-heading h2 {
+    padding: 1.5rem 1.75rem 2rem 1.75rem;
+}
+
+.container-skill {
     width: 21.25rem;
     height: 16.25rem;
-    border-radius: 0.625rem;
+    padding: 3.5rem 1.75rem 2rem 1.75rem;
     background-color: var(--clr-white);
+    border-radius: 0.625rem;
+    box-shadow: 0px 10px 50px rgba(6, 22, 141, 4.42%);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.container-skill p {
+    margin-top: 1rem;
+}
+
+.container-skill img {
+    position: absolute;
+    top: -24px;
+    left: 28px;
 }
 
 @media(min-width:47em) {
-    .equal-squares {
+    .container-basic {
+        width: 691px;
+    }
+
+    .container-equal-squares {
         gap: 3.5rem 0.6875rem;
-        max-width: 691px;
-        margin-inline: auto;
+        width: 691px;
     }
 
-    #test {
-        max-width: 691px;
-        margin-inline: auto;
-    }
-
-    #cta {
+    .container-heading {
         height: 16.25rem;
     }
 
-    #cta h2 {
+    .container-heading h2 {
         padding: 3.5rem 1.3125rem 8.75rem 2rem;
+    }
+
+    .container-skill img {
+        top: -24px;
+        left: 32px;
     }
 }
 
-
-
-
-@media(min-width:67.125em) {
-
-    .container-small {
-        padding: 4rem 2rem 2.5rem 2rem;
+@media(min-width:72.375em) {
+    .container-basic {
+        width: 1110px;
     }
 
-    .container-small p {
-        margin-top: 1.5rem;
-    }
-
-    .equal-squares {
+    .container-equal-squares {
         gap: 5rem 1.875rem;
-        max-width: 730px;
+        width: 1110px;
+        /*we don't need this because container-basic already has a max-width which will apply aswell to its son.*/
     }
 
-    #test {
-        max-width: 730px;
-    }
-
-    .equal-squares>*,
-    #cta {
+    .container-skill,
+    .container-heading {
         width: 21.875rem;
         height: 20rem;
     }
-}
 
-@media(min-width:71.375em) {
-    .equal-squares {
-        max-width: 1110px;
+    .container-skill {
+        padding: 4rem 2rem 2.5rem 2rem;
     }
 
-    #test {
-        max-width: 1110px;
+    .container-skill p {
+        margin-top: 1.5rem;
     }
-}
 
-
-
-
-/* general styling */
-body {
-    font-size: var(--fs-body);
-    font-family: var(--ff-body);
 }
 
 
@@ -397,21 +411,6 @@ body {
     background-color: var(--clr-lightpurple);
 }
 
-.button-gamma {
-    border: 0;
-    border-radius: 100vmax;
-    padding: 0.75em 1.75em;
-    font-weight: var(--fw-bold);
-    font-size: var(--fs-button);
-    color: var(--clr-white);
-    background-image: var(--grd-secondary);
-}
-
-.button-gamma:hover,
-.button-gamma:focus-visible {
-    background-image: var(--grd-secondary-hover);
-}
-
 .button-beta {
     border: 0;
     border-radius: 100vmax;
@@ -427,7 +426,22 @@ body {
     background-image: var(--grd-primary-hover);
 }
 
-@media(min-width:50em) {
+.button-gamma {
+    border: 0;
+    border-radius: 100vmax;
+    padding: 0.75em 1.75em;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-button);
+    color: var(--clr-white);
+    background-image: var(--grd-secondary);
+}
+
+.button-gamma:hover,
+.button-gamma:focus-visible {
+    background-image: var(--grd-secondary-hover);
+}
+
+@media(min-width:72.375em) {
 
     .button-alpha,
     .button-gamma {
@@ -456,7 +470,13 @@ body {
 
 
 
-/* navigation */
+/* header/navigation */
+@media(max-width:47em) {
+    header .container-basic {
+        width: calc(100% - 2rem);
+    }
+}
+
 .navigation {
     display: flex;
     justify-content: space-between;
@@ -467,17 +487,47 @@ header .navigation {
     padding-top: 1rem;
 }
 
-
-/* .hero-mobile {
-    box-shadow: 0px 34px 54px rgba(6, 22, 141, 15.89%); 
-} */
-
-/* HOW TO SOLVE THE PROBLEM OF BOX SHADOW AND THE HERO MOBILE SVG */
-/* MAKE A DIV, EXPORT AND PUT WOMAN IN DIV, CENTER WOMAN IN THE NEW DIV. */
-/* ADD THE 2 PANELS AND USE POSITION RELATIVE TO POSITION THEM CORECTLY IN DIV AND THEN ADD DROP-SHADOW */
+@media(min-width:47em) {
+    header .navigation {
+        padding-top: 1.5rem;
+    }
+}
 
 
-.hero-image {
+
+
+/* footer */
+@media(max-width:47em) {
+    footer .container-basic {
+        width: calc(100% - 2rem);
+    }
+}
+
+
+
+
+/* section - entry */
+section:nth-of-type(1) .container-basic {
+    position: relative;
+    /* Allows to position-absolute the images in regards to container-basic */
+}
+
+.hero-central {
+    max-width: 21.43rem;
+    margin-inline: auto;
+}
+
+.hero-central button {
+    margin-bottom: 2.875rem;
+}
+
+.hero-central p {
+    padding-block: 1.75rem;
+}
+
+/*---- faulty png work-around ----*/
+
+.hero-image-mobile {
     position: relative;
     display: flex;
     align-items: center;
@@ -503,9 +553,24 @@ header .navigation {
     border-radius: 10px;
 }
 
-.hero-central {
-    max-width: 21.43rem;
-    margin-inline: auto;
+/*---- work-around ends here ----*/
+
+#hero-image-tablet {
+    display: none;
+    /* initial state - activated with min-width reached */
+
+    position: absolute;
+    top: -80%;
+    left: 50%;
+}
+
+#hero-image-desktop {
+    display: none;
+    /* initial state - activated with min-width reached */
+
+    position: absolute;
+    top: -110%;
+    left: 50%;
 }
 
 @media(min-width:47em) {
@@ -513,112 +578,32 @@ header .navigation {
         max-width: 25em;
         margin-inline: initial;
     }
+
+    .hero-image-mobile {
+        display: none;
+    }
+
+    #hero-image-tablet {
+        display: initial;
+    }
 }
 
-@media(min-width:67.125em) {
+@media(min-width:72.375em) {
     .hero-central {
         max-width: 28.75em;
     }
-}
 
-.hero-central button {
-    margin-bottom: 2.875rem;
-}
-
-.hero-central p {
-    padding-block: 1.75rem;
-}
-
-#hero-image-tablet {
-    display: none;
-}
-
-
-@media(min-width:47em) {
-    .hero-image {
-        display: none;
-    }
-
-    #hero-image-tablet {
-        display: initial;
+    .hero-central p {
+        width: 27.8125rem;
     }
 }
 
-/* @media(max-width:47em) {
-    #hero-image-tablet {
-        display: none;
-    }
-} */
-
-#hero-image-desktop {
-    display: none;
-}
-
-@media(min-width:71.375em) {
+@media(min-width:72.375em) {
     #hero-image-tablet {
         display: none;
     }
 
     #hero-image-desktop {
         display: initial;
-    }
-}
-
-#test {
-    position: relative;
-}
-
-#hero-image-tablet {
-    position: absolute;
-    top: -80%;
-    left: 50%;
-}
-
-#hero-image-desktop {
-    position: absolute;
-    top: -110%;
-    left: 45%;
-}
-
-
-/* @media(max-width:71.375em) {
-    #hero-image-desktop {
-        display: none;
-    }
-} */
-
-html {
-    overflow-x: hidden;
-    /*without this, the hero image creates big distortion */
-}
-
-.container-small img {
-    position: absolute;
-    top: -24px;
-    left: 28px;
-}
-
-@media(min-width:47em) {
-    section:nth-of-type(1) {
-        padding-top: 6.125rem;
-    }
-
-    section:nth-of-type(2) {
-        padding-top: 11.625rem;
-    }
-
-    .container-small img {
-        top: -24px;
-        left: 32px;
-    }
-}
-
-@media(min-width:71.375em) {
-    section:nth-of-type(2) {
-        padding-top: 14.125rem;
-    }
-
-    section:nth-of-type(1) {
-        padding-top: 11.125rem;
     }
 }
